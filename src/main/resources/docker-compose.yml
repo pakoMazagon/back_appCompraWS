@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  my_postgres_lista_compra:
+    image: postgres:15
+    container_name: my_postgres_lista_compra
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: lista_compra
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data_2:/var/lib/postgresql/data
+    networks:
+      - lista-compra-net
+
+volumes:
+  postgres_data_2:
+
+networks:
+  lista-compra-net:
+    name: lista-compra-net
